@@ -19,9 +19,9 @@
                     <p>Un projet intrigant qui éveillera votre curiosité.</p>
                 </div>
             </a>
-            <a href="/projet2/" class="project-card">
+            <a href="https://cv.nolannthuillier.fr/" class="project-card">
                 <div class="card-content">
-                    <h2>N/A</h2>
+                    <h2>CV</h2>
                     <p>Découvrez quelque chose d'inattendu et amusant.</p>
                 </div>
             </a>
