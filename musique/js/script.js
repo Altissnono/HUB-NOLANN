@@ -1,126 +1,100 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const musicList = document.getElementById('music-list');
+document.addEventListener('DOMContentLoaded', () => {
+    const musicItems = document.querySelectorAll('.music-item');
     const audio = document.getElementById('audio');
-    const playPauseButton = document.getElementById('play-pause');
+    const audioSource = document.getElementById('audio-source');
+    const playButton = document.getElementById('play');
+    const pauseButton = document.getElementById('pause');
     const stopButton = document.getElementById('stop');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
     const loopButton = document.getElementById('loop');
-    const muteButton = document.getElementById('mute');
-    const progress = document.getElementById('progress');
-    const currentTimeDisplay = document.getElementById('current-time');
-    const durationDisplay = document.getElementById('duration');
-    const albumArt = document.getElementById('album-art');
+    const progressBar = document.getElementById('progress-bar');
+    const volumeBar = document.getElementById('volume-bar');
     const trackTitle = document.getElementById('track-title');
-    const trackArtist = document.getElementById('track-artist');
+    const coverImage = document.getElementById('cover-image');
 
-    const fetchMusic = async (category) => {
-        try {
-            const response = await fetch('api/get_music.php?category=' + category);
-            const musicItems = await response.json();
-            return musicItems;
-        } catch (error) {
-            console.error('Erreur lors de la récupération des musiques:', error);
-            return [];
-        }
-    };
+    let currentTrackIndex = -1;
+    let isLooping = false;
+    const tracks = Array.from(musicItems);
 
-    function loadMusic(category) {
-        fetchMusic(category).then(musicItems => {
-            musicList.innerHTML = '';
-            musicItems.forEach((track, index) => {
-                const musicItem = document.createElement('div');
-                musicItem.classList.add('music-item');
-                musicItem.innerHTML = `
-                    <img src="${track.albumArt}" alt="${track.title}">
-                    <div class="details">
-                        <h3>${track.title}</h3>
-                        <p>Artiste: ${track.artist}</p>
-                        <p>Date de sortie: ${track.date}</p>
-                        <p>Style: ${track.style}</p>
-                        <p>Créateur: ${track.creator}</p>
-                        <p>Description: ${track.description}</p>
-                    </div>
-                `;
-                musicItem.addEventListener('click', () => playTrack(index, category));
-                musicList.appendChild(musicItem);
-            });
-        });
-    }
-
-    function playTrack(index, category) {
-        fetchMusic(category).then(musicItems => {
-            const track = musicItems[index];
-            audio.src = track.audioFile;
-            albumArt.src = track.albumArt;
-            trackTitle.textContent = track.title;
-            trackArtist.textContent = track.artist;
+    function loadTrack(index) {
+        const track = tracks[index];
+        if (track) {
+            audioSource.src = track.getAttribute('data-src');
+            trackTitle.textContent = track.getAttribute('data-title');
+            coverImage.src = `images/${track.getAttribute('data-cover')}`;
+            audio.load();
             audio.play();
-            playPauseButton.textContent = '⏸️';
+        }
+    }
+
+    function playNextTrack() {
+        currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+        loadTrack(currentTrackIndex);
+    }
+
+    function playPrevTrack() {
+        currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+        loadTrack(currentTrackIndex);
+    }
+
+    musicItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            currentTrackIndex = index;
+            loadTrack(currentTrackIndex);
         });
-    }
-
-    function updateProgress() {
-        if (audio.duration) {
-            const progressValue = (audio.currentTime / audio.duration) * 100;
-            progress.value = progressValue;
-            currentTimeDisplay.textContent = formatTime(audio.currentTime);
-            durationDisplay.textContent = formatTime(audio.duration);
-        }
-    }
-
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-    }
-
-    playPauseButton.addEventListener('click', function() {
-        if (audio.paused) {
-            audio.play();
-            playPauseButton.textContent = '⏸️';
-        } else {
-            audio.pause();
-            playPauseButton.textContent = '▶️';
-        }
     });
 
-    stopButton.addEventListener('click', function() {
+    playButton.addEventListener('click', () => {
+        audio.play();
+    });
+
+    pauseButton.addEventListener('click', () => {
+        audio.pause();
+    });
+
+    stopButton.addEventListener('click', () => {
         audio.pause();
         audio.currentTime = 0;
-        playPauseButton.textContent = '▶️';
     });
 
-    loopButton.addEventListener('click', function() {
-        audio.loop = !audio.loop;
-        loopButton.textContent = audio.loop ? '🔁 (On)' : '🔁';
+    prevButton.addEventListener('click', () => {
+        playPrevTrack();
     });
 
-    muteButton.addEventListener('click', function() {
-        audio.muted = !audio.muted;
-        muteButton.textContent = audio.muted ? '🔇' : '🔊';
+    nextButton.addEventListener('click', () => {
+        playNextTrack();
     });
 
-    progress.addEventListener('input', function() {
-        const newTime = (progress.value / 100) * audio.duration;
+    loopButton.addEventListener('click', () => {
+        isLooping = !isLooping;
+        audio.loop = isLooping;
+        loopButton.style.color = isLooping ? '#ff5722' : '#e0e0e0';
+    });
+
+    audio.addEventListener('ended', () => {
+        if (!isLooping) {
+            playNextTrack();
+        }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressBar.value = progress;
+    });
+
+    progressBar.addEventListener('input', () => {
+        const newTime = (progressBar.value / 100) * audio.duration;
         audio.currentTime = newTime;
     });
 
-    audio.addEventListener('timeupdate', updateProgress);
-    audio.addEventListener('ended', function() {
-        if (currentTrackIndex < categories[currentCategory].length - 1) {
-            playTrack(currentTrackIndex + 1, currentCategory);
-        }
+    volumeBar.addEventListener('input', () => {
+        audio.volume = volumeBar.value / 100;
     });
 
-    document.getElementById('category-list').addEventListener('click', function(e) {
-        if (e.target.tagName === 'LI') {
-            const category = e.target.dataset.category;
-            document.querySelector('.sidebar .active').classList.remove('active');
-            e.target.classList.add('active');
-            currentCategory = category;
-            loadMusic(category === 'all' ? 'all' : category);
-        }
-    });
-
-    let currentCategory = 'all';
-    loadMusic(currentCategory);
+    // Optionally load the first track on page load
+    if (tracks.length > 0) {
+        currentTrackIndex = 0;
+        loadTrack(currentTrackIndex);
+    }
 });

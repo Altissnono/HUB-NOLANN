@@ -1,189 +1,135 @@
 body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-.container {
-    display: flex;
-    flex: 1;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: #1db954;
-    color: #ffffff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-}
-
-.sidebar h2 {
-    margin-top: 0;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-}
-
-.sidebar li {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #ffffff;
-    transition: background-color 0.3s;
-}
-
-.sidebar li.active, .sidebar li:hover {
-    background-color: #1ed760;
-}
-
-.main-content {
-    flex: 1;
-    padding: 20px;
+    font-family: Arial, sans-serif;
     background-color: #121212;
-    color: #ffffff;
+    color: #e0e0e0;
+}
+
+header {
+    background-color: #1e1e1e;
+    padding: 20px;
+    text-align: center;
 }
 
 h1 {
-    color: #ffffff;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
 .music-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    justify-content: center;
+    padding: 20px;
 }
 
 .music-item {
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
-    background-color: #282828;
-    color: #ffffff;
-    padding: 15px;
-    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
-    width: calc(33.333% - 20px);
 }
 
 .music-item:hover {
-    background-color: #3a3a3a;
+    background-color: #333;
 }
 
 .music-item img {
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
     margin-right: 15px;
 }
 
-.music-item .details {
+.music-details {
     flex: 1;
 }
 
-.music-item .details h3 {
+.title {
+    font-size: 1.2em;
     margin: 0;
-    font-size: 18px;
-    color: #ffffff;
 }
 
-.music-item .details p {
-    margin: 0;
-    font-size: 14px;
-    color: #b3b3b3;
+.genre, .style, .description {
+    margin: 5px 0;
 }
 
-.audio-player {
+.player {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
-    background-color: #333;
-    border-top: 1px solid #555;
-    padding: 10px;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-}
-
-.player-info {
+    right: 0;
+    background-color: #1e1e1e;
+    padding: 15px;
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.5);
+    z-index: 1000;
+    border-radius: 10px 10px 0 0;
 }
 
-#album-art {
-    width: 60px;
-    height: 60px;
-    border-radius: 5px;
+.cover-container {
+    flex: 0 0 100px;
     margin-right: 15px;
 }
 
-.info {
-    flex: 1;
-}
-
-#track-title {
-    margin: 0;
-    font-size: 18px;
-    color: #ffffff;
-}
-
-#track-artist {
-    margin: 0;
-    font-size: 14px;
-    color: #b3b3b3;
+#cover-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .player-controls {
     display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+    align-items: center;
+    margin-right: 15px;
 }
 
 .control-button {
-    background-color: #1db954;
-    color: #ffffff;
+    background: none;
     border: none;
-    padding: 10px;
+    color: #e0e0e0;
+    font-size: 1.5em;
     margin: 0 5px;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    transition: color 0.3s;
 }
 
 .control-button:hover {
-    background-color: #1ed760;
+    color: #ff5722;
 }
 
-.control-button:active {
-    background-color: #1aa34f;
-}
-
-.progress-bar {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-#progress {
+.player-info {
+    font-size: 1.1em;
     flex: 1;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
-#current-time, #duration {
-    font-size: 14px;
-    color: #b3b3b3;
+.progress-container {
+    flex: 1;
+    margin-right: 15px;
+}
+
+#progress-bar {
+    width: 100%;
+}
+
+.volume-container {
+    flex: 0 0 100px;
+}
+
+#volume-bar {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .music-item {
+        width: 100%;
+    }
 }

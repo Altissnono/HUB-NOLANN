@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Titre de la Musique 1",
+        "genre": "Pop",
+        "style": "Électronique",
+        "description": "Description de la musique 1.",
+        "file": "VoyageenRime.mp3",
+        "cover": "image_2be14fd2-ef3d-4058-9b49-7532b7f323f2.png"
+    },
+    {
+        "title": "Titre de la Musique 2",
+        "genre": "Rock",
+        "style": "Classique",
+        "description": "Description de la musique 2.",
+        "file": "song2.mp3",
+        "cover": "cover2.jpg"
+    }
+]
