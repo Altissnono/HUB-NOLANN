@@ -18,3 +18,4 @@ Mon Hub Personnel est un projet que j'ai créé pour centraliser et organiser to
 - **Catégorisation** : Organisation des projets en différentes catégories pour une navigation simplifiée.
 - **Détails des projets** : Des pages individuelles pour chaque projet avec des descriptions, des images et des liens pertinents.
 
+ 

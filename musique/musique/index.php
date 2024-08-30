@@ -8,6 +8,7 @@
 </head>
 <body>
     <header>
+        <a href="https://hub.nolannthuillier.fr/" class="back-button">Retour Hub</a>
         <h1>My Music Player</h1>
     </header>
     <div class="music-list">
@@ -30,7 +31,7 @@
             <span id="total-time">0:00</span>
         </div>
         <div class="volume-container">
-            <input id="volume-bar" type="range" min="0" max="100" value="100">
+            <input id="volume-bar" type="range" min="0" max="100" value="20">
         </div>
         <audio id="audio">
             <source id="audio-source" src="" type="audio/mpeg">
