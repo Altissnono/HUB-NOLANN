@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hub de Projets Épiques</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Hub de Projets Techno-Épiques</title>
+    <link rel="stylesheet" href="style/home.css">
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenue sur le Hub de Projets Épiques!</h1>
-        <p>Sélectionnez un projet... ou préparez-vous à l'aventure!</p>
+        <div class="header">
+            <h1 class="welcome-message"></h1>
+        </div>
+        <p class="description">Explorez mes projets passionnants ci-dessous :</p>
         <div class="projects">
-            <a href="/projet1/" class="project-card">
+            <a href="/musique/" class="project-card">
                 <div class="card-content">
-                    <h2>Projet 1</h2>
-                    <p>Attention! Ce projet peut causer des éclats de rire.</p>
+                    <h2>Musique</h2>
+                    <p>Un projet intrigant qui éveillera votre curiosité.</p>
                 </div>
             </a>
-            <a href="/projet2/" class="project-card">
+            <a href="https://cv.nolannthuillier.fr/" class="project-card">
                 <div class="card-content">
-                    <h2>Projet 2</h2>
-                    <p>Risque élevé de curiosité insatiable. Vous êtes prévenu!</p>
+                    <h2>CV</h2>
+                    <p>Découvrez quelque chose d'inattendu et amusant.</p>
                 </div>
             </a>
             <a href="/projet3/" class="project-card">
                 <div class="card-content">
-                    <h2>Projet 3</h2>
-                    <p>Le mystère vous appelle. Osez cliquer!</p>
+                    <h2>N/A</h2>
+                    <p>Explorez la créativité en action avec ce projet captivant.</p>
                 </div>
             </a>
-            <!-- Ajoute autant de projets que nécessaire -->
+            <!-- Ajoutez d'autres projets ici -->
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

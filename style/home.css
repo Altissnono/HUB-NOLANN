@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #e3f2fd, #bbdefb); /* Dégradé bleu clair */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    padding: 30px;
+    background-color: #ffffff; /* Fond blanc */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Ombre douce */
+    border-radius: 15px;
+    position: relative;
+}
+
+.header {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #0288d1; /* Bleu vif */
+    min-height: 60px; /* Ajusté pour l'animation */
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.projects {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background-color: #ffffff; /* Fond blanc pour les cartes */
+    color: #0288d1; /* Bleu vif */
+    text-decoration: none;
+    padding: 20px;
+    margin: 10px;
+    width: 260px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+
+.project-card:hover {
+    background-color: #e1f5fe; /* Bleu clair au survol */
+    transform: translateY(-5px); /* Effet de levée doux */
+}
+
+.project-card .card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.project-card h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+}
+
+.project-card p {
+    margin: 0;
+    font-size: 16px;
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blinkCaret {
+    from, to { border-color: transparent; }
+    50% { border-color: #0288d1; }
+}
+
+.welcome-message {
+    font-size: 28px;
+    overflow: hidden; /* Assure que l'animation se limite au conteneur */
+    border-right: 2px solid #0288d1;
+    white-space: nowrap;
+    display: inline-block;
+    animation: blinkCaret 0.75s step-end infinite;
+}
