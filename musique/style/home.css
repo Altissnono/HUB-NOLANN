@@ -1,135 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-header {
-    background-color: #1e1e1e;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #e3f2fd, #bbdefb); /* Dégradé bleu clair */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     text-align: center;
 }
 
+.container {
+    max-width: 900px;
+    padding: 30px;
+    background-color: #ffffff; /* Fond blanc */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Ombre douce */
+    border-radius: 15px;
+    position: relative;
+}
+
+.header {
+    position: relative;
+    margin-bottom: 20px;
+}
+
 h1 {
-    margin: 0;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #0288d1; /* Bleu vif */
+    min-height: 60px; /* Ajusté pour l'animation */
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
 }
 
-.music-list {
+.description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.projects {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: center;
+}
+
+.project-card {
+    background-color: #ffffff; /* Fond blanc pour les cartes */
+    color: #0288d1; /* Bleu vif */
+    text-decoration: none;
     padding: 20px;
-}
-
-.music-item {
-    background-color: #1c1c1c;
+    margin: 10px;
+    width: 260px;
     border-radius: 10px;
-    margin: 15px;
-    padding: 15px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
 }
 
-.music-item:hover {
-    background-color: #333;
+.project-card:hover {
+    background-color: #e1f5fe; /* Bleu clair au survol */
+    transform: translateY(-5px); /* Effet de levée doux */
 }
 
-.music-item img {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
-    margin-right: 15px;
+.project-card .card-content {
+    position: relative;
+    z-index: 2;
 }
 
-.music-details {
-    flex: 1;
+.project-card h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
 }
 
-.title {
-    font-size: 1.2em;
+.project-card p {
     margin: 0;
+    font-size: 16px;
 }
 
-.genre, .style, .description {
-    margin: 5px 0;
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
-.player {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #1e1e1e;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 -4px 8px rgba(0,0,0,0.5);
-    z-index: 1000;
-    border-radius: 10px 10px 0 0;
+@keyframes blinkCaret {
+    from, to { border-color: transparent; }
+    50% { border-color: #0288d1; }
 }
 
-.cover-container {
-    flex: 0 0 100px;
-    margin-right: 15px;
-}
-
-#cover-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.player-controls {
-    display: flex;
-    align-items: center;
-    margin-right: 15px;
-}
-
-.control-button {
-    background: none;
-    border: none;
-    color: #e0e0e0;
-    font-size: 1.5em;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.control-button:hover {
-    color: #ff5722;
-}
-
-.player-info {
-    font-size: 1.1em;
-    flex: 1;
-    margin-right: 15px;
-}
-
-.progress-container {
-    flex: 1;
-    margin-right: 15px;
-}
-
-#progress-bar {
-    width: 100%;
-}
-
-.volume-container {
-    flex: 0 0 100px;
-}
-
-#volume-bar {
-    width: 100%;
-}
-
-@media (max-width: 600px) {
-    .music-item {
-        width: 100%;
-    }
+.welcome-message {
+    font-size: 28px;
+    overflow: hidden; /* Assure que l'animation se limite au conteneur */
+    border-right: 2px solid #0288d1;
+    white-space: nowrap;
+    display: inline-block;
+    animation: blinkCaret 0.75s step-end infinite;
 }

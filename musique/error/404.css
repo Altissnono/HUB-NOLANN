@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.error {
+    font-size: 100px;
+    font-weight: bold;
+    color: #dc3545;
+    position: relative;
+}
+
+.error span {
+    display: inline-block;
+    transform: rotate(-15deg);
+    color: #17a2b8;
+}
+
+.message {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #343a40;
+}
+
+.error-text {
+    font-size: 28px;
+    height: 40px;
+    color: #dc3545;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.cursor {
+    display: inline-block;
+    background-color: #dc3545;
+    width: 2px;
+    animation: blink 0.7s step-end infinite;
+    margin-left: 2px;
+    height: 1.2em;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.humor {
+    font-size: 18px;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+}
+
+.animation {
+    margin-top: 50px;
+    position: relative;
+}
+
+.ball {
+    width: 50px;
+    height: 50px;
+    background-color: #17a2b8;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+.shadow {
+    width: 80px;
+    height: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: shrink 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        top: 0;
+    }
+    50% {
+        top: 80px;
+    }
+}
+
+@keyframes shrink {
+    0%, 100% {
+        width: 80px;
+    }
+    50% {
+        width: 40px;
+    }
+}
