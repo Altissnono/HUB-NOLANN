@@ -13,7 +13,7 @@
         </div>
         <p class="description">Explorez mes projets passionnants ci-dessous :</p>
         <div class="projects">
-            <a href="/projet1/" class="project-card">
+            <a href="/musique/" class="project-card">
                 <div class="card-content">
                     <h2>Musique</h2>
                     <p>Un projet intrigant qui éveillera votre curiosité.</p>
