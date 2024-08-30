@@ -25,15 +25,27 @@
                     <p>Découvrez quelque chose d'inattendu et amusant.</p>
                 </div>
             </a>
-            <a href="/projet3/" class="project-card">
+            <a href="/faq/" class="project-card">
                 <div class="card-content">
-                    <h2>N/A</h2>
+                    <h2>FAQ</h2>
+                    <p>Explorez la créativité en action avec ce projet captivant.</p>
+                </div>
+            </a>
+            <a href="/faq/" class="project-card">
+                <div class="card-content">
+                    <h2>FAQ</h2>
                     <p>Explorez la créativité en action avec ce projet captivant.</p>
                 </div>
             </a>
             <!-- Ajoutez d'autres projets ici -->
         </div>
     </div>
+    <footer>
+        <div class="footer-content">
+            <a href="https://hub.nolannthuillier.fr/legal/mentions-legales.php" class="footer-link">Mentions Légales</a> | 
+            <a href="https://hub.nolannthuillier.fr/legal/conditions_generales.php" class="footer-link">Conditions Générales d'Utilisation</a>
+        </div>
+    </footer>
     <script src="js/script.js"></script>
 </body>
 </html>
