@@ -21,23 +21,30 @@
             <div class="music-list" id="music-list">
                 <!-- Les éléments de musique seront insérés ici par JavaScript -->
             </div>
-            <div class="audio-player">
-                <audio id="audio" controls>
-                    <!-- La source sera modifiée dynamiquement -->
-                </audio>
-                <div class="player-controls">
-                    <button id="play-pause" class="control-button">▶️</button>
-                    <button id="stop" class="control-button">⏹️</button>
-                    <button id="loop" class="control-button">🔁</button>
-                    <button id="mute" class="control-button">🔊</button>
-                </div>
-                <div class="progress-bar">
-                    <input type="range" id="progress" value="0" max="100">
-                    <span id="current-time">0:00</span>
-                    <span id="duration">0:00</span>
-                </div>
-            </div>
         </main>
+    </div>
+    <div class="audio-player">
+        <div class="player-info">
+            <img id="album-art" src="" alt="Album Art">
+            <div class="info">
+                <h2 id="track-title">Titre</h2>
+                <p id="track-artist">Artiste</p>
+            </div>
+        </div>
+        <audio id="audio" controls style="display: none;">
+            <!-- La source sera modifiée dynamiquement -->
+        </audio>
+        <div class="player-controls">
+            <button id="play-pause" class="control-button">▶️</button>
+            <button id="stop" class="control-button">⏹️</button>
+            <button id="loop" class="control-button">🔁</button>
+            <button id="mute" class="control-button">🔊</button>
+        </div>
+        <div class="progress-bar">
+            <input type="range" id="progress" value="0" max="100">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>

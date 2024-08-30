@@ -8,32 +8,54 @@ document.addEventListener('DOMContentLoaded', function() {
     const progress = document.getElementById('progress');
     const currentTimeDisplay = document.getElementById('current-time');
     const durationDisplay = document.getElementById('duration');
+    const albumArt = document.getElementById('album-art');
+    const trackTitle = document.getElementById('track-title');
+    const trackArtist = document.getElementById('track-artist');
 
-    const categories = {
-        all: ['song1.mp3', 'song2.mp3', 'song3.mp3'],
-        instrumental: ['instrumental1.mp3', 'instrumental2.mp3'],
-        vocal: ['vocal1.mp3', 'vocal2.mp3']
+    const fetchMusic = async (category) => {
+        try {
+            const response = await fetch('api/get_music.php?category=' + category);
+            const musicItems = await response.json();
+            return musicItems;
+        } catch (error) {
+            console.error('Erreur lors de la récupération des musiques:', error);
+            return [];
+        }
     };
 
-    let currentCategory = 'all';
-    let currentTrackIndex = 0;
-
     function loadMusic(category) {
-        musicList.innerHTML = '';
-        categories[category].forEach((track, index) => {
-            const musicItem = document.createElement('div');
-            musicItem.classList.add('music-item');
-            musicItem.textContent = track;
-            musicItem.addEventListener('click', () => playTrack(index, category));
-            musicList.appendChild(musicItem);
+        fetchMusic(category).then(musicItems => {
+            musicList.innerHTML = '';
+            musicItems.forEach((track, index) => {
+                const musicItem = document.createElement('div');
+                musicItem.classList.add('music-item');
+                musicItem.innerHTML = `
+                    <img src="${track.albumArt}" alt="${track.title}">
+                    <div class="details">
+                        <h3>${track.title}</h3>
+                        <p>Artiste: ${track.artist}</p>
+                        <p>Date de sortie: ${track.date}</p>
+                        <p>Style: ${track.style}</p>
+                        <p>Créateur: ${track.creator}</p>
+                        <p>Description: ${track.description}</p>
+                    </div>
+                `;
+                musicItem.addEventListener('click', () => playTrack(index, category));
+                musicList.appendChild(musicItem);
+            });
         });
     }
 
     function playTrack(index, category) {
-        currentTrackIndex = index;
-        audio.src = `musics/${categories[category][index]}`;
-        audio.play();
-        playPauseButton.textContent = '⏸️';
+        fetchMusic(category).then(musicItems => {
+            const track = musicItems[index];
+            audio.src = track.audioFile;
+            albumArt.src = track.albumArt;
+            trackTitle.textContent = track.title;
+            trackArtist.textContent = track.artist;
+            audio.play();
+            playPauseButton.textContent = '⏸️';
+        });
     }
 
     function updateProgress() {
@@ -95,9 +117,10 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.sidebar .active').classList.remove('active');
             e.target.classList.add('active');
             currentCategory = category;
-            loadMusic(category);
+            loadMusic(category === 'all' ? 'all' : category);
         }
     });
 
+    let currentCategory = 'all';
     loadMusic(currentCategory);
 });
