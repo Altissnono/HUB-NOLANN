@@ -4,6 +4,7 @@ $config = require('config.php');
 
 // Dossier contenant les photos
 $photoDir = 'photos/';
+$processedFile = 'processed_images.txt';
 
 // Fonction pour supprimer les métadonnées EXIF des fichiers JPEG
 function stripExif($filePath) {
@@ -18,21 +19,28 @@ function stripExif($filePath) {
 }
 
 // Fonction pour vérifier le format d'image et appliquer les opérations nécessaires
-function processImage($filePath) {
-    $info = getimagesize($filePath);
-    switch ($info['mime']) {
-        case 'image/jpeg':
-            stripExif($filePath);
-            break;
-        case 'image/png':
-            // Pour les PNG, vous pourriez ajouter du code ici pour d'autres opérations si nécessaire
-            break;
-        case 'image/gif':
-            // Pour les GIF, vous pourriez ajouter du code ici pour d'autres opérations si nécessaire
-            break;
-        default:
-            // Pour les formats non pris en charge, ne rien faire
-            break;
+function processImage($filePath, $processedFile) {
+    $processedImages = file_exists($processedFile) ? file($processedFile, FILE_IGNORE_NEW_LINES) : [];
+    $fileName = basename($filePath);
+
+    if (!in_array($fileName, $processedImages)) {
+        $info = getimagesize($filePath);
+        switch ($info['mime']) {
+            case 'image/jpeg':
+                stripExif($filePath);
+                // Ajouter le nom du fichier au fichier de suivi
+                file_put_contents($processedFile, $fileName . PHP_EOL, FILE_APPEND);
+                break;
+            case 'image/png':
+                // Pour les PNG, vous pourriez ajouter du code ici pour d'autres opérations si nécessaire
+                break;
+            case 'image/gif':
+                // Pour les GIF, vous pourriez ajouter du code ici pour d'autres opérations si nécessaire
+                break;
+            default:
+                // Pour les formats non pris en charge, ne rien faire
+                break;
+        }
     }
 }
 
@@ -74,9 +82,9 @@ $images = array_filter($files, function($file) use ($photoDir) {
     return in_array($ext, $extensions);
 });
 
-// Traiter les images (supprimer les métadonnées pour les JPEG)
+// Traiter les images (supprimer les métadonnées pour les JPEG uniquement si non traité précédemment)
 foreach ($images as $image) {
-    processImage($photoDir . $image);
+    processImage($photoDir . $image, $processedFile);
 }
 
 // Nombre d'images à charger par lot
@@ -185,7 +193,7 @@ $initialImages = array_slice($images, 0, $imagesPerLoad);
 <body>
     <div class="header">
         <h1>Galerie Photo</h1>
-        <a href="index.php">Retour au Hub</a>
+        <a href="https://hub.nolannthuillier.fr/">Retour au Hub</a>
     </div>
     <div class="gallery">
         <?php foreach ($initialImages as $image): ?>

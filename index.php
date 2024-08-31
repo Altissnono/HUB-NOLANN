@@ -33,8 +33,14 @@
             </a>
             <a href="/photo/" class="project-card">
                 <div class="card-content">
-                    <h2>photo</h2>
+                    <h2>Photo</h2>
                     <p>Explorez la créativité en action avec ce projet captivant.</p>
+                </div>
+            </a>
+            <a href="/Game/" class="project-card">
+                <div class="card-content">
+                    <h2>Game</h2>
+                    <p>Explorez en action les jeux captivant.</p>
                 </div>
             </a>
             <!-- Ajoutez d'autres projets ici -->

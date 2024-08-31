@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fonction pour obtenir le message de bienvenue approprié selon l'heure
     function getGreetingMessage() {
         const hours = new Date().getHours();
-        if (hours < 6) {
+        if (hours < 12) {
             return [
                 "Bonjour!",
                 "Guten Morgen!",

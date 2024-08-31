@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #e0f7fa;
+    font-family: 'Arial', sans-serif;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #e0f7fa;
+    position: relative;
+}
+
+#gameWrapper {
+    position: relative;
+    width: 1200px; /* Augmenter la largeur du jeu */
+    height: 400px; /* Augmenter la hauteur du jeu */
+    border: 5px solid #004d40;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    background: #ffffff;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    background-color: #ffffff;
+    border: 1px solid #004d40;
+}
+
+#scoreBoard {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #004d40;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#gameCard {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #004d40;
+    border: 1px solid #004d40;
+    border-radius: 10px;
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+
+#gameOverMessage {
+    display: none;
+}
+
+#gameOverMessage p {
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+
+#restartButton {
+    background-color: #ff5722;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#restartButton:hover {
+    background-color: #e64a19;
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('path-to-background-image.png') repeat-x;
+    z-index: -1;
+    animation: scrollBackground 30s linear infinite;
+}
+
+@keyframes scrollBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -1200px 0; }
+}
+
+/* Style de la carte */
+#card {
+    position: relative;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+}
+
+/* Animation de la carte */
+@keyframes colorChange {
+    0% { border-color: #ff0000; box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+    50% { border-color: #00ff00; box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); }
+    100% { border-color: #0000ff; box-shadow: 0 0 10px rgba(0, 0, 255, 0.5); }
+}
+
+#card.animate {
+    animation: colorChange 2s ease forwards, pulse 2s infinite;
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Styles pour le bouton Retour au Hub */
+#hubButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#hubButton:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}

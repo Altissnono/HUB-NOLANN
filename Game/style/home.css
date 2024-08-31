@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #e3f2fd, #bbdefb); /* Dégradé bleu clair */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    padding: 30px;
+    background-color: #ffffff; /* Fond blanc */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Ombre douce */
+    border-radius: 15px;
+    margin: 20px auto; /* Centrez le contenu horizontalement et ajoutez de l'espace autour */
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #0288d1; /* Bleu vif */
+}
+
+.description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.projects {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background-color: #ffffff; /* Fond blanc pour les cartes */
+    color: #0288d1; /* Bleu vif */
+    text-decoration: none;
+    padding: 20px;
+    margin: 10px;
+    width: 260px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover {
+    background-color: #e1f5fe; /* Bleu clair au survol */
+    transform: translateY(-5px); /* Effet de levée doux */
+}
+
+.project-card h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+}
+
+.project-card p {
+    margin: 0;
+    font-size: 16px;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto; /* Force le footer à rester en bas */
+}
+
+.footer-content {
+    display: inline-block;
+}
+
+.footer-link {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
