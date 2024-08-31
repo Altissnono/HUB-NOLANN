@@ -25,6 +25,12 @@
                     <p>Pour sauter une fois ou deux.</p>
                 </div>
             </a>
+            <a href="https://hub.nolannthuillier.fr/Game/g2/" class="project-card">
+                <div class="card-content">
+                    <h2>Canva</h2>
+                    <p>Canva un jour Canva toujours.</p>
+                </div>
+            </a>
             <!-- Ajoutez d'autres projets ici -->
         </div>
     </div>

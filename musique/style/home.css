@@ -251,3 +251,81 @@ h1 {
 .popup p {
     font-size: 16px;
 }
+
+/* Styles pour les petits écrans (smartphones) */
+@media (max-width: 600px) {
+    .music-item {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .music-item img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .music-details {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .music-details .title {
+        font-size: 1em;
+    }
+
+    .music-details .genre, .music-details .style, .music-details .description {
+        font-size: 0.9em;
+    }
+
+    .player {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .cover-container {
+        display: none; /* Hide cover image on mobile */
+    }
+
+    #cover-image {
+        width: 100px;
+        height: 100px;
+        display: none; /* Hide cover image on mobile */
+    }
+
+    .player-controls {
+        margin-bottom: 10px;
+    }
+
+    .control-button {
+        font-size: 1.5em;
+        margin: 5px;
+    }
+
+    .progress-container, .volume-container {
+        display: none; /* Hide progress and volume controls on mobile */
+    }
+}
+
+/* Popup styles for mobile (no changes needed) */
+@media (max-width: 600px) {
+    .popup-content {
+        width: 90%;
+        max-width: none;
+        padding: 15px;
+    }
+
+    .popup h2 {
+        font-size: 20px;
+    }
+
+    .popup p {
+        font-size: 14px;
+    }
+}
