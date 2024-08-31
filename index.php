@@ -16,24 +16,24 @@
             <a href="/musique/" class="project-card">
                 <div class="card-content">
                     <h2>Musique</h2>
-                    <p>Un projet intrigant qui éveillera votre curiosité.</p>
+                    <p>Pour danser en pyjama ou en public.</p>
                 </div>
             </a>
             <a href="https://cv.nolannthuillier.fr/" class="project-card">
                 <div class="card-content">
                     <h2>CV</h2>
-                    <p>Découvrez quelque chose d'inattendu et amusant.</p>
+                    <p>Ma carrière en un clin d'œil… ou en un faux pas.</p>
                 </div>
             </a>
             <a href="/faq/" class="project-card">
                 <div class="card-content">
                     <h2>FAQ</h2>
-                    <p>Explorez la créativité en action avec ce projet captivant.</p>
+                    <p>Réponses aux questions que vous n'avez jamais osé poser.</p>
                 </div>
             </a>
-            <a href="/faq/" class="project-card">
+            <a href="/photo/" class="project-card">
                 <div class="card-content">
-                    <h2>FAQ</h2>
+                    <h2>photo</h2>
                     <p>Explorez la créativité en action avec ce projet captivant.</p>
                 </div>
             </a>

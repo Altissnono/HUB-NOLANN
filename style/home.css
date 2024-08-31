@@ -8,10 +8,8 @@ body {
     background: linear-gradient(to bottom, #e3f2fd, #bbdefb); /* Dégradé bleu clair */
     color: #333;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
@@ -20,7 +18,8 @@ body {
     background-color: #ffffff; /* Fond blanc */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Ombre douce */
     border-radius: 15px;
-    position: relative;
+    margin: 20px auto; /* Centrez le contenu horizontalement et ajoutez de l'espace autour */
+    flex-grow: 0; /* Empêche le conteneur de grandir pour remplir l'espace */
 }
 
 .header {
@@ -100,6 +99,7 @@ h1 {
     white-space: nowrap;
     display: inline-block;
     animation: blinkCaret 0.75s step-end infinite;
+    text-align: center; /* Assure que le texte est centré à l'intérieur de l'élément */
 }
 
 /* Style pour le footer */
@@ -107,9 +107,8 @@ footer {
     background-color: #f8f9fa;
     padding: 20px;
     text-align: center;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    margin-top: auto; /* Force le footer à rester en bas */
 }
 
 .footer-content {

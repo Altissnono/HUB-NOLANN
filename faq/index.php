@@ -56,7 +56,6 @@
             </div>
         </div>
 
-        
        
         <div id="technical" class="tab-content">
             <h2>Qui suis-je ?</h2>
@@ -85,6 +84,13 @@
                 <button class="accordion">Q4 : Quels sont mes projets pour l'avenir ?</button>
                 <div class="accordion-content">
                     <p>Dans les années à venir, je souhaite continuer à me perfectionner professionnellement tout en développant mes projets personnels.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="accordion">Q5 : La RGPD dans tout ce que je fais ?</button>
+                <div class="accordion-content">
+                    <p>Depuis 2024, j'ai été reçu à un atelier de la CNIL qui atteste de ma présence et de ma compréhension concernant la mise en place et le respect de la RGPD, ainsi que sur le fonctionnement des organismes CJUE (Cour de Justice de l'Union Européenne) et RDBP (Règlement Général sur la Protection des Données) sur les données.</p>
                 </div>
             </div>
         </div>
