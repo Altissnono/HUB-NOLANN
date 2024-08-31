@@ -43,6 +43,12 @@
                     <p>Explorez en action les jeux captivant.</p>
                 </div>
             </a>
+            <a href="/video/" class="project-card">
+                <div class="card-content">
+                    <h2>video</h2>
+                    <p>Des vidéo quoi ...</p>
+                </div>
+            </a>
             <!-- Ajoutez d'autres projets ici -->
         </div>
     </div>

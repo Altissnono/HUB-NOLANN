@@ -1,0 +1,55 @@
+/* animations.css */
+
+/* Effet de fondu pour les boutons au survol */
+.control-btn:hover {
+    background: #444;
+    transform: scale(1.1);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Animation du chargement de la vidéo */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.video-player {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Effet de transition pour les barres de progression */
+#progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* Effet de zoom avant pour les éléments de la galerie au survol */
+.video-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animation pour le bouton Retour Hub */
+#back-to-hub {
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Animation de l'apparition des contrôles */
+#controls {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#controls.show {
+    opacity: 1;
+}
+
+/* Effet de survol pour les boutons de vitesse */
+#speed-selector .control-btn:hover {
+    background: #333;
+    transition: background 0.3s ease;
+}
