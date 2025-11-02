@@ -65,6 +65,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let charIndex = 0;
     const welcomeMessage = document.querySelector(".welcome-message");
 
+    if (!welcomeMessage) {
+        return;
+    }
+
+    welcomeMessage.textContent = "";
+
     function typeMessage() {
         if (charIndex < messages[index].length) {
             welcomeMessage.textContent += messages[index].charAt(charIndex);
